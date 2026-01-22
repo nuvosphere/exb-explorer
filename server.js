@@ -27,10 +27,11 @@ const server = app.listen(PORT, () => {
 });
 
 // Cron job every minute
-cron.schedule("* * * * *", async () => {
+cron.schedule("*/1 * * * * *", async () => {
   logger.info("Cron job triggered -> pollNextBlocks");
   await pollNextBlocks();
 });
+
 
 // Graceful shutdown
 function shutdown() {
